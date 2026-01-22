@@ -1,0 +1,67 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Program Status – Roadmap (Local & Single-User)</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Vendor libs (client-side only; loaded before app.js) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body data-theme="azure">
+  <header class="appbar">
+    <div class="bar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="title">Program Status — Roadmap</div>
+          <div class="muted" style="font-size:12px;">Single-user • Local storage • No backend</div>
+        </div>
+      </div>
+      <div class="controls">
+        <select id="themePicker" class="theme" title="Theme">
+          <option value="azure" selected>Theme: Azure</option>
+          <option value="emerald">Theme: Emerald</option>
+          <option value="sunset">Theme: Sunset</option>
+          <option value="crimson">Theme: Crimson</option>
+        </select>
+        <button id="toggleEdit" class="btn">Edit</button>
+        <button id="exportPNG" class="btn">Export PNG</button>
+        <button id="exportPDF" class="btn">Export PDF</button>
+        <button id="exportJSON" class="btn ghost">Export JSON</button>
+        <button id="importJSON" class="btn ghost">Import JSON</button>
+        <button id="resetData" class="btn ghost" title="Clear local data">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <div class="legend">
+      <span class="pill"><span class="k g"></span> Complete (✓)</span>
+      <span class="pill"><span class="k w"></span> In Progress (➜)</span>
+      <span class="pill"><span class="k"></span> Not Started (•)</span>
+      <span class="pill"><span class="k b"></span> Blocked (✗)</span>
+      <span class="muted">Tip: Toggle <b>Edit</b> to add/rename/delete items.</span>
+    </div>
+
+    <div id="exportTarget" class="grid">
+      <!-- Sidebar phases list -->
+      <aside class="phases" id="phasesSidebar" aria-label="Phases"></aside>
+
+      <!-- Main content -->
+      <section class="panel" id="mainPanel" aria-live="polite"></section>
+    </div>
+
+    <div class="footer-actions">
+      <span>All changes are saved locally in your browser.</span>
+    </div>
+  </div>
+</body>
+</html>
+``
